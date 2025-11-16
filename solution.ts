@@ -10,3 +10,12 @@ function formatValue(
     return !value;
   }
 }
+
+// Problem 2
+function getLength<T>(value: string | T[]): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value.length;
+  }
+}
