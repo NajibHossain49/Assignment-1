@@ -71,3 +71,40 @@ function printBookDetails(book: Book): void {
     `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available}`
   );
 }
+
+// Problem 7
+function getUniqueValues(
+  array1: (string | number)[],
+  array2: (string | number)[]
+): (string | number)[] {
+  const result: (string | number)[] = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === array1[i]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      result[result.length] = array1[i];
+    }
+  }
+
+  for (let i = 0; i < array2.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === array2[i]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      result[result.length] = array2[i];
+    }
+  }
+
+  return result;
+}
+
