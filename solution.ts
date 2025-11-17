@@ -57,10 +57,17 @@ function filterActiveUsers(users: User[]): User[] {
   return users.filter((user) => user.isActive === true);
 }
 
-const users = [
-  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
-  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
-  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
-];
+// Problem 6
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
 
-console.log(filterActiveUsers(users));
+function printBookDetails(book: Book): void {
+  const available = book.isAvailable ? "Yes" : "No";
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available}`
+  );
+}
