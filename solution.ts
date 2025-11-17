@@ -1,4 +1,3 @@
-// Problem 1
 function formatValue(
   value: string | number | boolean
 ): string | number | boolean {
@@ -11,7 +10,6 @@ function formatValue(
   }
 }
 
-// Problem 2
 function getLength<T>(value: string | T[]): number {
   if (typeof value === "string") {
     return value.length;
@@ -20,7 +18,6 @@ function getLength<T>(value: string | T[]): number {
   }
 }
 
-// Problem 3
 class Person {
   name: string;
   age: number;
@@ -35,7 +32,6 @@ class Person {
   }
 }
 
-// Problem 4
 interface Item {
   title: string;
   rating: number;
@@ -45,7 +41,6 @@ function filterByRating(items: Item[]): Item[] {
   return items.filter((item) => item.rating >= 4);
 }
 
-// Problem 5
 interface User {
   id: number;
   name: string;
@@ -57,7 +52,6 @@ function filterActiveUsers(users: User[]): User[] {
   return users.filter((user) => user.isActive === true);
 }
 
-// Problem 6
 interface Book {
   title: string;
   author: string;
@@ -72,7 +66,6 @@ function printBookDetails(book: Book): void {
   );
 }
 
-// Problem 7
 function getUniqueValues(
   array1: (string | number)[],
   array2: (string | number)[]
@@ -108,3 +101,26 @@ function getUniqueValues(
   return result;
 }
 
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+function calculateTotalPrice(products: Product[]): number {
+  if (products.length === 0) {
+    return 0;
+  }
+
+  return products.reduce((total, product) => {
+    let itemTotal = product.price * product.quantity;
+
+    if (product.discount !== undefined) {
+      const discountAmount = itemTotal * (product.discount / 100);
+      itemTotal = itemTotal - discountAmount;
+    }
+
+    return total + itemTotal;
+  }, 0);
+}
